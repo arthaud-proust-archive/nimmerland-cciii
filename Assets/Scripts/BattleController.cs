@@ -9,19 +9,15 @@ using BattleClasses;
 
 public class BattleController : MonoBehaviour
 {
+    public string battleToStart;
     private Battle currentBattle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartBattle(battleToStart);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // Public classes 
     public void StartBattle(string battleType)
@@ -46,6 +42,11 @@ public class BattleController : MonoBehaviour
     }
 
     public Turn GetTurn()
+    {
+        return new Turn();
+    }
+
+    public Turn GetTurnResults()
     {
         return new Turn();
     }
