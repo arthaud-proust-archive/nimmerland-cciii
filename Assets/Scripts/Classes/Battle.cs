@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Classes;
 using HeroClasses;
+using EnemyClasses;
 
 class GFG : IComparer<Entity>
 {
@@ -25,45 +26,48 @@ namespace Classes
 
     public class Battle : MonoBehaviour
     {
-        public int tour;
+        
+        public int Tour;
+        
+        public List<Hero> Heroes = new List<Hero>();
+        public List<Enemy> Enemies = new List<Enemy>();
         
         private List<Entity> entities = new List<Entity>();
-
-        private List<Hero> heroes = new List<Hero>();
-        private List<Enemy> enemies = new List<Enemy>();
-        public Boss boss;
 
         public Battle()
         {
             FillHeroes();
+            FillEnemies();
+            FillEntities();
+            OrderBySpeed();
         }
 
         public void FillHeroes()
         {
-            heroes.Add(new Hero1());
-            heroes.Add(new Hero2());
-            heroes.Add(new Hero3());
+            Heroes.Add(new Hero1());
+            Heroes.Add(new Hero2());
+            Heroes.Add(new Hero3());
         }
 
         public virtual void FillEnemies()
         {
+            // on remplit ici en fonction du niveau (Battle1, Battle2, ...)
         }
+
 
         // Créé un tableau contenant toutes les entités
         public virtual void FillEntities()
         {
             entities.Clear();
-            foreach (Hero hero in heroes)
+            foreach (Hero hero in Heroes)
             {
                 entities.Add(hero);
             }
 
-            foreach (Enemy enemy in enemies)
+            foreach (Enemy enemy in Enemies)
             {
                 entities.Add(enemy);
             }
-
-            if (boss) entities.Add(boss);
         }
 
 
@@ -73,11 +77,14 @@ namespace Classes
             Debug.Log("Sorting...");
             GFG gg = new GFG();
             entities.Sort(gg);
+            entities.Reverse();
             Debug.Log(entities);
         }
 
         public void DoTour ()
         {
+            Tour++;
+
 
         }
 
