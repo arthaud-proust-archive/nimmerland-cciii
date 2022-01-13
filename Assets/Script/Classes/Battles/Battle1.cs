@@ -5,15 +5,13 @@ using Battle;
 
 public class Battle1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OrderBySpeed
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        List<int> Speeds =
+ {
+                Hero1.baseSpeed,
+                Hero2.baseSpeed,
+                Hero3.baseSpeed
+};
     }
 }
