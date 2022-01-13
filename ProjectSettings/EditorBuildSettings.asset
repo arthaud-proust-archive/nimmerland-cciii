@@ -8,6 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/SettingsMenu.unity
     guid: c84abb2940538264586d00b2d8093e51
@@ -19,3 +20,6 @@ EditorBuildSettings:
     guid: f78cf8b155e1ddd479dd13706fc55070
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 14fa7f8e254659a4aa38572df34a3b0e, type: 2}
+=======
+  m_configObjects: {}
+>>>>>>> peyo
