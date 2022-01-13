@@ -9,6 +9,15 @@ namespace Classes
     {
         public int actualDefense;
 
+
+        public bool IsTypeOfEnemy()
+        {
+            return false;
+        }
+        public bool IsTypeOfHero()
+        {
+            return true;
+        }
         public virtual void getAction()
         {
 
