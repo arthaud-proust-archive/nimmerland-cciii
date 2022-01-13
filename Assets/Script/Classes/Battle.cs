@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Classes;
 
-namespace Battle
+namespace Classes
 {
 
     public class Battle : MonoBehaviour
@@ -11,9 +11,9 @@ namespace Battle
         public int iTour;
         public Boss boss;
 
-        public Hero [] heroes;
-        public Enemy [] enemies;
-        public Boss boss;
+        public Hero[] heroes;
+        //public Enemy [] enemies;
+        //public Boss boss;
 
         public virtual void OrderBySpeed()
         {
