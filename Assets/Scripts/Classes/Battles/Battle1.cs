@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Classes;
+using EnemyClasses;
 
 namespace BattleClasses
 {
     public class Battle1 : Battle
     {
-        // Start is called before the first frame update
-        void Start()
+        public string background = "level-1";
+
+        public void FillEnemies()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            Enemies.Add(new Enemy1());
         }
     }
 }

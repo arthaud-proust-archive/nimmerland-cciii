@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Classes;
-using HeroClasses;
-using BossClasses;
 using BattleClasses;
 
 public class BattleController : MonoBehaviour
@@ -59,6 +57,16 @@ public class BattleController : MonoBehaviour
     public void SelectAction(string action)
     {
 
+        //if (BattleController.GetTurn().GetEntity().type == hero2)
+        if (true)
+        {
+            Debug.Log("Runden");
+        }
+        else
+        {
+            Debug.Log("Special 1");
+        }
+        Debug.Log(action);
     }
 
     public void SelectTarget(string action)
