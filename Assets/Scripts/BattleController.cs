@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Classes;
 using BattleClasses;
@@ -9,6 +10,8 @@ public class BattleController : MonoBehaviour
 {
     public string battleToStart;
     private Battle currentBattle;
+    public Button FirstSelectHeroBtn;
+    public Button FirstSelectActionBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -58,19 +61,24 @@ public class BattleController : MonoBehaviour
     {
 
         //if (BattleController.GetTurn().GetEntity().type == hero2)
-        if (true)
-        {
-            Debug.Log("Runden");
-        }
-        else
-        {
-            Debug.Log("Special 1");
-        }
+
         Debug.Log(action);
+        if (action == "Special1" || action == "Special3")
+        {
+            FirstSelectHeroBtn.Select();
+        }
+
     }
 
     public void SelectTarget(string action)
     {
 
+        //if (BattleController.GetTurn().GetEntity().type == hero2)
+
+        Debug.Log(action);
+
+        FirstSelectActionBtn.Select();
+
     }
+
 }

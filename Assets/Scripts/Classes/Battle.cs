@@ -28,7 +28,9 @@ namespace Classes
     {
         
         public int Tour;
-        
+
+        public Scene Scene;
+
         public List<Hero> Heroes = new List<Hero>();
         public List<Enemy> Enemies = new List<Enemy>();
         
@@ -36,11 +38,18 @@ namespace Classes
 
         public Battle()
         {
+            CreateScene();
             FillHeroes();
             FillEnemies();
             FillEntities();
             OrderBySpeed();
         }
+
+        public void CreateScene()
+        {
+            Scene = new Scene(background, music, dialogs);
+        }
+
 
         public void FillHeroes()
         {
@@ -48,6 +57,7 @@ namespace Classes
             Heroes.Add(new Hero2());
             Heroes.Add(new Hero3());
         }
+
 
         public virtual void FillEnemies()
         {
@@ -91,6 +101,11 @@ namespace Classes
         public Turn GetTurn()
         {
             return new Turn();
+        }
+
+        public Turn GetScene()
+        {
+            return Scene;
         }
     }
 
