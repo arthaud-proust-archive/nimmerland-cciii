@@ -12,6 +12,7 @@ public class BattleController : MonoBehaviour
     private Battle currentBattle;
     public Button FirstSelectHeroBtn;
     public Button FirstSelectActionBtn;
+    public Text DialogText;
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +45,9 @@ public class BattleController : MonoBehaviour
 
     public Turn GetTurn()
     {
-        return new Turn();
+        return currentBattle.GetTurn();
     }
 
-    public Turn GetTurnResults()
-    {
-        return new Turn();
-    }
 
     public Scene GetScene()
     {

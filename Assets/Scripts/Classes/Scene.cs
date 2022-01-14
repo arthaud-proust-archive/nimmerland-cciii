@@ -13,11 +13,11 @@ namespace Classes
         public List<string> Dialogs = new List<string>();
 
         // constructeur
-        public Scene(background, music, dialogs)
+        public Scene()
         {
-            Background = background;
+            /*Background = background;
             Music = music;
-            Dialogs = dialogs;
+            Dialogs = dialogs;*/
         }
 
         public string GetBackground()
@@ -32,7 +32,7 @@ namespace Classes
 
         public List<string> GetDialogs()
         {
-            return dialogs;
+            return Dialogs;
         }
     }
 }

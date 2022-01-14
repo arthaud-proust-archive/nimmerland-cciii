@@ -18,7 +18,7 @@ namespace Classes
         public int ActualSpeed;
         
         public Guid Guid;
-        public EntityTypes EntityType;
+        // public EntityTypes EntityType;
 
         public Entity()
         {
@@ -49,11 +49,13 @@ namespace Classes
         }
         public bool IsTypeOfEnemy()
         {
-            return EntityType == "enemy";
+            return true;
+            // return EntityType == "enemy";
         }
         public bool IsTypeOfHero()
         {
-            return EntityType == "hero";
+            return true;
+            // return EntityType == "hero";
         }
 
 

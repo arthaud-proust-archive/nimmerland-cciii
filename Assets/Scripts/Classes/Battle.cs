@@ -36,6 +36,10 @@ namespace Classes
         
         private List<Entity> entities = new List<Entity>();
 
+        // private string background;
+        // private string sound;
+        // private List<string> dialogs;
+
         public Battle()
         {
             CreateScene();
@@ -47,7 +51,7 @@ namespace Classes
 
         public void CreateScene()
         {
-            Scene = new Scene(background, music, dialogs);
+            // Scene = new Scene(background, music, dialogs);
         }
 
 
@@ -100,10 +104,10 @@ namespace Classes
 
         public Turn GetTurn()
         {
-            return new Turn();
+            return new Turn(Heroes[0], this);
         }
 
-        public Turn GetScene()
+        public Scene GetScene()
         {
             return Scene;
         }
