@@ -47,11 +47,10 @@ public class BattleController : MonoBehaviour
     {
         return currentBattle.GetTurn();
     }
-
-
+    
     public Scene GetScene()
     {
-        return new Scene();
+        return currentBattle.GetScene();
     }
 
     public void SelectAction(string action)

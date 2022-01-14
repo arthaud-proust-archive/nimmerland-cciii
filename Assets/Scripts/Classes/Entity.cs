@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Classes
 {
-    enum EntityTypes { Enemy, Hero}
+    public enum EntityTypes { Enemy, Hero}
 
     public class Entity : MonoBehaviour, IComparable
     {
@@ -49,13 +49,11 @@ namespace Classes
         }
         public bool IsTypeOfEnemy()
         {
-            return true;
-            // return EntityType == "enemy";
+            return EntityType == EntityTypes.Enemy;
         }
         public bool IsTypeOfHero()
         {
-            return true;
-            // return EntityType == "hero";
+            return EntityType == EntityTypes.Hero;
         }
 
 

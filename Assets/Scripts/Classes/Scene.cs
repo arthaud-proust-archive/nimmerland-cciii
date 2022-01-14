@@ -13,7 +13,7 @@ namespace Classes
         public List<string> Dialogs = new List<string>();
 
         // constructeur
-        public Scene()
+        public Scene(string background, string music, List<string> dialogs)
         {
             /*Background = background;
             Music = music;

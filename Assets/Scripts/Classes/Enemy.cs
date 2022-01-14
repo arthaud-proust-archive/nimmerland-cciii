@@ -7,7 +7,7 @@ namespace Classes
 {
     public class Enemy : Entity
     {
-        // public EntityTypes EntityType = EntityTypes.Enemy;
+        public new EntityTypes EntityType = EntityTypes.Enemy;
 
         public Enemy()
         {
