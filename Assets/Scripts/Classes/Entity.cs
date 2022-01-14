@@ -7,16 +7,84 @@ namespace Classes
 {
     public enum EntityTypes { Enemy, Hero}
 
-    public class Entity : MonoBehaviour, IComparable
+    public class Entity : IComparable
     {
-        public int BasePv;
-        public int BaseAttack;
-        public int BaseSpeed;
-        
-        public int ActualPv;
-        public int ActualAttack;
-        public int ActualSpeed;
-        
+        private int _basePv = 0;
+        private int _baseAttack = 0;
+        private int _baseSpeed = 0;
+        private int _baseDefense = 0;
+
+        private int _actualPv = 0;
+        private int _actualAttack = 0;
+        private int _actualSpeed = 0;
+        private int _actualDefense = 0;
+
+        private Color _dialogNameColor = Color.white;
+
+        private string _name = "not_defined";
+
+        public int BasePv{
+            get => _basePv;
+            set { _basePv = value;  _actualPv = value; }
+        }
+        public int BaseAttack
+        {
+            get => _baseAttack;
+            set { _baseAttack = value; _actualAttack = value; }
+        }
+
+        public int BaseSpeed
+        {
+            get => _baseSpeed;
+            set { _baseSpeed = value; _actualSpeed = value; }
+        }
+        public int BaseDefense
+        {
+            get => _baseDefense;
+            set { _baseDefense = value; _actualDefense = value; }
+        }
+
+
+
+
+        public int ActualPv
+        {
+            get => _actualPv;
+            set => _actualPv = value;
+        }
+        public int ActualAttack
+        {
+            get => _actualAttack;
+            set => _actualAttack = value;
+        }
+
+        public int ActualSpeed
+        {
+            get => _actualSpeed;
+            set => _actualSpeed = value;
+        }
+        public int ActualDefense
+        {
+            get => _actualDefense;
+            set => _actualDefense = value;
+        }
+
+
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+        public Color DialogNameColor
+        {
+            get => _dialogNameColor;
+            set => _dialogNameColor = value;
+        }
+
+
+
+
         public Guid Guid;
         public EntityTypes EntityType;
 

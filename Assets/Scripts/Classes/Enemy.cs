@@ -9,11 +9,12 @@ namespace Classes
     {
         public new EntityTypes EntityType = EntityTypes.Enemy;
 
-        public Enemy()
+
+        public Enemy() :base()
         {
 
         }
 
-        
+
     }
 }

@@ -7,30 +7,35 @@ namespace HeroClasses
 {
     public class Hero2 : Hero
     {
-        public int basePv = 100;
-        public int baseAttack = 15;
-        public int baseSpeed = 35;
-        public int actualPv = 100;
-        public int actualDefense = 0;
+        public Hero2() : base()
+        {
+            BasePv = 100;
+            BaseAttack = 15;
+            BaseSpeed = 35;
+            ActualPv = 100;
+            BaseDefense = 0;
+            ActualDefense = 0;
 
-        public virtual void getAction()
+            Name = "Magy Dreieck";
+            DialogNameColor = Color.green;
+        }
+
+        public override void getAction()
         {
 
         }
 
-        public virtual void FirstCapacity()
+        public override void FirstCapacity()
+        {
+        }
+
+        public override void SecondCapacity()
         {
 
         }
 
-        public virtual void SecondCapacity()
+        public override void ThirdCapacity()
         {
-
-        }
-
-        public virtual void ThirdCapacity()
-        {
-
         }
 
     }
