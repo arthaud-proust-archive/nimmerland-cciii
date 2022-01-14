@@ -38,6 +38,7 @@ namespace Classes
         
         private List<Entity> entities = new List<Entity>();
 
+        // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
         private string background;
         private string music;
         private List<string> dialogs;
@@ -53,7 +54,7 @@ namespace Classes
 
         public void CreateScene()
         {
-            // Scene = new Scene(background, music, dialogs);
+            Scene = new Scene(background, music, dialogs);
         }
 
 
