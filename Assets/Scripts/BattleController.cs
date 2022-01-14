@@ -13,6 +13,9 @@ public class BattleController : MonoBehaviour
     public Button FirstSelectHeroBtn;
     public Button FirstSelectActionBtn;
     public Text DialogText;
+    public Text PlatzText;
+    public Text DreieckText;
+    public Text RundenText;
 
     // Start is called before the first frame update
     void Start()
@@ -74,8 +77,17 @@ public class BattleController : MonoBehaviour
         Debug.Log(action);
 
         FirstSelectActionBtn.Select();
-
     }
+
+    public void UpdatePV()
+    {
+       foreach (Hero hero in currentBattle.Heroes)
+        {
+
+        }
+    }
+
+    
 
     
 }
