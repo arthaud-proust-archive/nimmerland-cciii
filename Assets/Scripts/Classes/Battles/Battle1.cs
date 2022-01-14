@@ -14,7 +14,6 @@ namespace BattleClasses
         {
             Background = "level-1";
             Music = "music-1";
-            Debug.Log(Heroes[0]);
             Dialogs = new List<Dialog>{
                 new Dialog(Heroes[0], "Test 1/3"),
                 new Dialog(Heroes[1], "Test 2/3"),

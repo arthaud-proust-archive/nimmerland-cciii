@@ -11,9 +11,7 @@ namespace HeroClasses
             BasePv = 100;
             BaseAttack = 15;
             BaseSpeed = 35;
-            ActualPv = 100;
             BaseDefense = 0;
-            ActualDefense = 0;
 
             Name = "Magy Dreieck";
             DialogNameColor = Color.green;

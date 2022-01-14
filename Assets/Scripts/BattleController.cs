@@ -27,6 +27,11 @@ public class BattleController : MonoBehaviour
     {
         dialogControllerScript = BattleDialogController.GetComponent<BattleDialogController>();
         sceneControllerScript = BattleSceneController.GetComponent<BattleSceneController>();
+
+        dialogControllerScript.BattleController = this;
+        sceneControllerScript.BattleController = this;
+
+
         StartBattle(battleToStart);
     }
 
@@ -55,8 +60,8 @@ public class BattleController : MonoBehaviour
         dialogControllerScript.SetScene(currentBattle.GetScene());
         sceneControllerScript.SetBattle(currentBattle);
 
+        sceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog();
-        sceneControllerScript.UpdatePV();
     }
 
     public Turn GetTurn()
@@ -73,24 +78,35 @@ public class BattleController : MonoBehaviour
     {
 
         //if (BattleController.GetTurn().GetEntity().type == hero2)
-
-        Debug.Log(action);
+        currentBattle.GetTurn().Action = action;
+        
         if (action == "Special1" || action == "Special3")
         {
             FirstSelectHeroBtn.Select();
+        } else
+        {
+            currentBattle.EndTurn();
+            sceneControllerScript.UpdatePv();
         }
-
     }
 
-    public void SelectTarget(string action)
+    public void SelectTarget(string target)
     {
-
+        currentBattle.GetTurn().Target = target;
         //if (BattleController.GetTurn().GetEntity().type == hero2)
 
-        Debug.Log(action);
+        Debug.Log(target);
 
         FirstSelectActionBtn.Select();
     }
 
+
+    public void HandleDialogEnd()
+    {
+        currentBattle.BeginTurn();
+        sceneControllerScript.UpdatePv();
+        sceneControllerScript.ShowBattleGroup();
+
+    }
 
 }

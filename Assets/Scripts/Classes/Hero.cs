@@ -5,27 +5,11 @@ using Classes;
 
 namespace Classes
 {
-
-    public class TestClass : TestClassParent
-    {
-        public TestClass() : base()
-        {
-        }
-    }
-
-    public class TestClassParent
-    {
-        public int Id;
-        public TestClassParent()
-        {
-            Id = 4;
-        }
-    }
     public class Hero : Entity
     {
-        public new EntityTypes EntityType = EntityTypes.Hero;
-
-        public Hero() : base() { }
+        public Hero() : base() {
+            EntityType = EntityTypes.Hero;
+        }
 
 
         public virtual void getAction()

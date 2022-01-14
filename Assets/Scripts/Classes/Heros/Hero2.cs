@@ -12,9 +12,7 @@ namespace HeroClasses
             BasePv = 85;
             BaseAttack = 25;
             BaseSpeed = 30;
-            ActualPv = 85;
             BaseDefense = 0;
-            ActualDefense = 0;
 
             Name = "Kirchlich Runden";
             DialogNameColor = Color.blue;

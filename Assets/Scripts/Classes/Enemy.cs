@@ -7,12 +7,9 @@ namespace Classes
 {
     public class Enemy : Entity
     {
-        public new EntityTypes EntityType = EntityTypes.Enemy;
-
-
         public Enemy() :base()
         {
-
+            EntityType = EntityTypes.Enemy;
         }
 
 

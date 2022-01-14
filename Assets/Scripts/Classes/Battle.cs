@@ -24,14 +24,16 @@ class GFG : IComparer<Entity>
 namespace Classes
 {
     
-    public class Battle : MonoBehaviour
+    public class Battle
     {
         
-        public int Tour;
+        // 1 pass  = 1 tour pour chaque entité
+        public int PassI = 0;
+        public int TurnI = 0;
 
         public Scene Scene;
 
-        public Turn Turn;
+        public List<Turn> Turns = new List<Turn>();
 
         public List<Entity> Heroes = new List<Entity>();
         public List<Entity> Enemies = new List<Entity>();
@@ -45,8 +47,6 @@ namespace Classes
 
         public Battle()
         {
-            
-
             FillHeroes();
             FillEnemies();
             FillEntities();
@@ -55,10 +55,11 @@ namespace Classes
             CreateScene();
 
             OrderBySpeed();
+
         }
 
         public void CreateScene()
-        {
+        { 
             Scene = new Scene(Background, Music, Dialogs);
         }
 
@@ -99,24 +100,32 @@ namespace Classes
 
         public void OrderBySpeed()
         {
-            Debug.Log(entities);
             Debug.Log("Sorting...");
             GFG gg = new GFG();
             entities.Sort(gg);
             entities.Reverse();
-            Debug.Log(entities);
         }
 
-        public void DoTour ()
+        public void EndTurn()
         {
-            Tour++;
+            GetTurn().DoAction();
+            // tester fin battle
 
-
+            BeginTurn();
+        }
+        public void BeginTurn()
+        {
+            TurnI++;
+            if(TurnI == entities.Count)
+            {
+                TurnI = 0;
+            }
+            Turns.Add(new Turn(entities[TurnI], this, TurnI));
         }
 
         public Turn GetTurn()
         {
-            return Turn;
+            return Turns[Turns.Count-1];
         }
 
         public Scene GetScene()

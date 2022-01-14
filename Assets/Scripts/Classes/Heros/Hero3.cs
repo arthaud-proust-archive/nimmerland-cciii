@@ -12,9 +12,7 @@ namespace HeroClasses
             BasePv = 115;
             BaseAttack = 20;
             BaseSpeed = 25;
-            ActualPv = 115;
             BaseDefense = 0;
-            ActualDefense = 0;
 
             Name = "Ritter von Platz";
             DialogNameColor = Color.red;

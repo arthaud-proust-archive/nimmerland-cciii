@@ -117,11 +117,11 @@ namespace Classes
         }
         public bool IsTypeOfEnemy()
         {
-            return EntityType == EntityTypes.Enemy;
+            return EntityTypes.Enemy.Equals(EntityType);
         }
         public bool IsTypeOfHero()
         {
-            return EntityType == EntityTypes.Hero;
+            return EntityTypes.Hero.Equals(EntityType);
         }
 
 

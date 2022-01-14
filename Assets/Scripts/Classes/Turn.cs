@@ -13,6 +13,9 @@ namespace Classes
         public Battle Battle;
         public int TurnNumber;
 
+        public string Action { get; set; }
+        public string Target { get; set; }
+
         public List<Entity> Allies = new List<Entity>();
         public List<Entity> Enemies = new List<Entity>();
 
@@ -23,6 +26,22 @@ namespace Classes
             TurnNumber = turnNumber;
 
             ComputeAlliesAndEnemies();
+        }
+
+
+        public void DoAction()
+        {
+            Debug.Log("--------- Action");
+            Debug.Log(EntityToPlay.Name);
+            Debug.Log(EntityToPlay.IsTypeOfHero());
+            foreach (Entity entity in Enemies)
+            {
+                Debug.Log(entity);
+            }
+            if (Action == "Attack")
+            {
+                EntityToPlay.Attack(Enemies[0]);
+            }
         }
 
         // Retourne toutes les entitées passées sauf cette qui doit jouer dans ce tour.
