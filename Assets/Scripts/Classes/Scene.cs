@@ -15,9 +15,9 @@ namespace Classes
         // constructeur
         public Scene(string background, string music, List<string> dialogs)
         {
-            /*Background = background;
+            Background = background;
             Music = music;
-            Dialogs = dialogs;*/
+            Dialogs = dialogs;
         }
 
         public string GetBackground()

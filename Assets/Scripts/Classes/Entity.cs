@@ -18,7 +18,7 @@ namespace Classes
         public int ActualSpeed;
         
         public Guid Guid;
-        // public EntityTypes EntityType;
+        public EntityTypes EntityType;
 
         public Entity()
         {
