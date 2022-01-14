@@ -44,17 +44,11 @@ public class BattleController : MonoBehaviour
 
     public Turn GetTurn()
     {
-        return new Turn();
+        return currentBattle.GetTurn();
     }
-
-    public Turn GetTurnResults()
-    {
-        return new Turn();
-    }
-
     public Scene GetScene()
     {
-        return new Scene();
+        return currentBattle.GetScene();
     }
 
     public void SelectAction(string action)

@@ -31,10 +31,16 @@ namespace Classes
 
         public Scene Scene;
 
+        public Turn Turn;
+
         public List<Hero> Heroes = new List<Hero>();
         public List<Enemy> Enemies = new List<Enemy>();
         
         private List<Entity> entities = new List<Entity>();
+
+        private string background;
+        private string music;
+        private List<string> dialogs;
 
         public Battle()
         {
@@ -100,10 +106,10 @@ namespace Classes
 
         public Turn GetTurn()
         {
-            return new Turn();
+            return Turn;
         }
 
-        public Turn GetScene()
+        public Scene GetScene()
         {
             return Scene;
         }
