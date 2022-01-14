@@ -13,10 +13,7 @@ public class BattleController : MonoBehaviour
 
     public Button FirstSelectHeroBtn;
     public Button FirstSelectActionBtn;
-    public Button FirstSelectLevelBtn;
     public Text DialogText;
-
-  //  public float CurrentLevel;
 
     public BattleDialogController BattleDialogController;
     private BattleDialogController dialogControllerScript;
@@ -75,15 +72,6 @@ public class BattleController : MonoBehaviour
     public Scene GetScene()
     {
         return currentBattle.GetScene();
-    }
-
-
-    public void SelectLevel(string level)
-    {
-
-    //    CurrentLevel = level;
-        FirstSelectActionBtn.Select();
-
     }
 
     public void SelectAction(string action)
