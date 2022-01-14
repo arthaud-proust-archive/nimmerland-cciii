@@ -33,8 +33,8 @@ namespace Classes
 
         public Turn Turn;
 
-        public List<Hero> Heroes = new List<Hero>();
-        public List<Enemy> Enemies = new List<Enemy>();
+        public List<Entity> Heroes = new List<Entity>();
+        public List<Entity> Enemies = new List<Entity>();
         
         private List<Entity> entities = new List<Entity>();
 

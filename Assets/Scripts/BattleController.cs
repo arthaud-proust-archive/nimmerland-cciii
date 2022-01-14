@@ -10,16 +10,23 @@ public class BattleController : MonoBehaviour
 {
     public string battleToStart;
     private Battle currentBattle;
+
     public Button FirstSelectHeroBtn;
     public Button FirstSelectActionBtn;
     public Text DialogText;
-    public Text PlatzText;
-    public Text DreieckText;
-    public Text RundenText;
+
+    public BattleDialogController BattleDialogController;
+    private BattleDialogController dialogControllerScript;
+
+    public BattleSceneController BattleSceneController;
+    private BattleSceneController sceneControllerScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        dialogControllerScript = BattleDialogController.GetComponent<BattleDialogController>();
+        sceneControllerScript = BattleSceneController.GetComponent<BattleSceneController>();
         StartBattle(battleToStart);
     }
 
@@ -44,6 +51,12 @@ public class BattleController : MonoBehaviour
             default:
                 break;
         }
+
+        dialogControllerScript.SetScene(currentBattle.GetScene());
+        sceneControllerScript.SetBattle(currentBattle);
+
+        dialogControllerScript.OpenDialog();
+        sceneControllerScript.UpdatePV();
     }
 
     public Turn GetTurn()
@@ -79,15 +92,5 @@ public class BattleController : MonoBehaviour
         FirstSelectActionBtn.Select();
     }
 
-    public void UpdatePV()
-    {
-       foreach (Hero hero in currentBattle.Heroes)
-        {
 
-        }
-    }
-
-    
-
-    
 }

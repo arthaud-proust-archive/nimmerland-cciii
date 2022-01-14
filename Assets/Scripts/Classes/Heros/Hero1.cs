@@ -8,15 +8,15 @@ namespace HeroClasses
     public class Hero1 : Hero
     {
         public Hero1() :base() {
-            BasePv = 115;
-            BaseAttack = 20;
-            BaseSpeed = 25;
-            ActualPv = 115;
+            BasePv = 100;
+            BaseAttack = 15;
+            BaseSpeed = 35;
+            ActualPv = 100;
             BaseDefense = 0;
             ActualDefense = 0;
 
-            Name = "Ritter von Platz";
-            DialogNameColor = Color.red;
+            Name = "Magy Dreieck";
+            DialogNameColor = Color.green;
         }
 
         public override void getAction()
@@ -35,7 +35,6 @@ namespace HeroClasses
 
         public override void ThirdCapacity()
         {
-            ActualDefense = 20;
         }
 
     }

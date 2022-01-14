@@ -9,15 +9,15 @@ namespace HeroClasses
     {
         public Hero2() : base()
         {
-            BasePv = 100;
-            BaseAttack = 15;
-            BaseSpeed = 35;
-            ActualPv = 100;
+            BasePv = 85;
+            BaseAttack = 25;
+            BaseSpeed = 30;
+            ActualPv = 85;
             BaseDefense = 0;
             ActualDefense = 0;
 
-            Name = "Magy Dreieck";
-            DialogNameColor = Color.green;
+            Name = "Kirchlich Runden";
+            DialogNameColor = Color.blue;
         }
 
         public override void getAction()

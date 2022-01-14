@@ -10,18 +10,19 @@ namespace Classes
     public class Turn
     {
         public Entity EntityToPlay;
-        private Type entityToPlayType;
         public Battle Battle;
         public int TurnNumber;
 
         public List<Entity> Allies = new List<Entity>();
         public List<Entity> Enemies = new List<Entity>();
 
-        public Turn(Entity entity, Battle battle)
+        public Turn(Entity entity, Battle battle, int turnNumber)
         {
             EntityToPlay = entity;
-            entityToPlayType = EntityToPlay.GetType();
             Battle = battle;
+            TurnNumber = turnNumber;
+
+            ComputeAlliesAndEnemies();
         }
 
         // Retourne toutes les entitées passées sauf cette qui doit jouer dans ce tour.
@@ -37,18 +38,22 @@ namespace Classes
             }
             return listToReturn;
         }
-        public void ComputeEnemies()
+
+        public void ComputeAlliesAndEnemies()
         {
-            // Si 
+            // Si c'est un type ennemi, ses alliés sont les types ennemy et ses ennemis sont les type hero
             if (EntityToPlay.IsTypeOfEnemy())
             {
-
+                Allies = getEntitiesExceptEntityToPlay(Battle.Enemies);
+                Enemies = getEntitiesExceptEntityToPlay(Battle.Heroes);
+            } 
+            // et inversement
+            else
+            {
+                Allies = getEntitiesExceptEntityToPlay(Battle.Heroes);
+                Enemies = getEntitiesExceptEntityToPlay(Battle.Enemies);
             }
         }
 
-        public void ComputeAllies()
-        {
-
-        }
     }
 }
