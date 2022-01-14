@@ -7,31 +7,35 @@ namespace HeroClasses
 {
     public class Hero1 : Hero
     {
-        public int basePv = 115;
-        public int baseAttack = 20;
-        public int baseSpeed = 25;
-        public int actualPv = 115;
-        public int actualDefense = 0;
-        public bool Platz1 = false;
+        public Hero1() :base() {
+            BasePv = 115;
+            BaseAttack = 20;
+            BaseSpeed = 25;
+            ActualPv = 115;
+            BaseDefense = 0;
+            ActualDefense = 0;
 
-        public virtual void getAction()
+            Name = "Ritter von Platz";
+            DialogNameColor = Color.red;
+        }
+
+        public override void getAction()
         {
 
         }
 
-        public virtual void FirstCapacity()
+        public override void FirstCapacity()
         {
-            Platz1 = true;
         }
 
-        public virtual void SecondCapacity()
+        public override void SecondCapacity()
         {
 
         }
 
-        public virtual void ThirdCapacity()
+        public override void ThirdCapacity()
         {
-            actualDefense = 20;
+            ActualDefense = 20;
         }
 
     }

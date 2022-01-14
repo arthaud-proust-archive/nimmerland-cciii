@@ -10,10 +10,10 @@ namespace Classes
     {
         public string Background;
         public string Music;
-        public List<string> Dialogs = new List<string>();
+        public List<Dialog> Dialogs = new List<Dialog>();
 
         // constructeur
-        public Scene(string background, string music, List<string> dialogs)
+        public Scene(string background, string music, List<Dialog> dialogs)
         {
             Background = background;
             Music = music;
@@ -31,7 +31,7 @@ namespace Classes
             return Music;
         }
 
-        public List<string> GetDialogs()
+        public List<Dialog> GetDialogs()
         {
             return Dialogs;
         }

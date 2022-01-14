@@ -23,7 +23,7 @@ class GFG : IComparer<Entity>
 
 namespace Classes
 {
-
+    
     public class Battle : MonoBehaviour
     {
         
@@ -41,34 +41,40 @@ namespace Classes
         // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
         public string Background;
         public string Music;
-        public List<string> Dialogs;
+        public List<Dialog> Dialogs;
 
         public Battle()
         {
-            Debug.Log("Battle constructor called");
+            
+
             FillHeroes();
             FillEnemies();
             FillEntities();
+
+            FillScene();
+            CreateScene();
+
             OrderBySpeed();
         }
 
         public void CreateScene()
         {
-            Debug.Log("CreateScene called");
             Scene = new Scene(Background, Music, Dialogs);
-            Debug.Log("Scene.Background");
-            Debug.Log(Scene.GetBackground());
         }
 
 
         public void FillHeroes()
         {
+            // corrigé ça marche les hero sont bien instanciés
             Heroes.Add(new Hero1());
             Heroes.Add(new Hero2());
             Heroes.Add(new Hero3());
         }
 
-
+        public virtual void FillScene()
+        {
+            // on remplit ici en fonction du niveau (Battle1, Battle2, ...)
+        }
         public virtual void FillEnemies()
         {
             // on remplit ici en fonction du niveau (Battle1, Battle2, ...)

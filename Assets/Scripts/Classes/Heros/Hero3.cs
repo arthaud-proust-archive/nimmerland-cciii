@@ -7,30 +7,35 @@ namespace HeroClasses
 {
     public class Hero3 : Hero
     {
-        public int basePv = 85;
-        public int baseAttack = 25;
-        public int baseSpeed = 30;
-        public int actualPv = 85;
-        public int actualDefense = 0;
+        public Hero3() : base()
+        {
+            BasePv = 85;
+            BaseAttack = 25;
+            BaseSpeed = 30;
+            ActualPv = 85;
+            BaseDefense = 0;
+            ActualDefense = 0;
 
-        public virtual void getAction()
+            Name = "Kirchlich Runden";
+            DialogNameColor = Color.blue;
+        }
+
+        public override void getAction()
         {
 
         }
 
-        public virtual void FirstCapacity()
+        public override void FirstCapacity()
+        {
+        }
+
+        public override void SecondCapacity()
         {
 
         }
 
-        public virtual void SecondCapacity()
+        public override void ThirdCapacity()
         {
-
-        }
-
-        public virtual void ThirdCapacity()
-        {
-
         }
 
     }
