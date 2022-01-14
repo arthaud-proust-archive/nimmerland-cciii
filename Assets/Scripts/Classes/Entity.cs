@@ -139,6 +139,10 @@ namespace Classes
         {
             return ActualSpeed;
         }
+        public string GetLifeString()
+        {
+            return ActualPv + " / " + BasePv;
+        }
 
         public void GainPv(int pvToGain)
         {

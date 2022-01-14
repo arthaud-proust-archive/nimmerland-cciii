@@ -9,15 +9,15 @@ namespace HeroClasses
     {
         public Hero3() : base()
         {
-            BasePv = 85;
-            BaseAttack = 25;
-            BaseSpeed = 30;
-            ActualPv = 85;
+            BasePv = 115;
+            BaseAttack = 20;
+            BaseSpeed = 25;
+            ActualPv = 115;
             BaseDefense = 0;
             ActualDefense = 0;
 
-            Name = "Kirchlich Runden";
-            DialogNameColor = Color.blue;
+            Name = "Ritter von Platz";
+            DialogNameColor = Color.red;
         }
 
         public override void getAction()
@@ -36,6 +36,7 @@ namespace HeroClasses
 
         public override void ThirdCapacity()
         {
+            ActualDefense = 20;
         }
 
     }

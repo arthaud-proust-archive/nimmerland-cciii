@@ -8,8 +8,6 @@ using Classes;
 public class DIalogController : MonoBehaviour
 {
 
-    public BattleController BattleController;
-    private BattleController battleControllerScript;
     public Scene Scene;
 
     public GameObject DialogGroup;
@@ -21,12 +19,11 @@ public class DIalogController : MonoBehaviour
     private int dialogStep = 0;
 
     // Start is called before the first frame update
-    void Start()
+    public void OpenDialogScene(Scene scene)
     {
+        Scene = scene;
+        SetDialogVisible(true);
         DialogBtn.Select();
-        battleControllerScript = BattleController.GetComponent<BattleController>();
-        Scene = battleControllerScript.GetScene();
-
         UpdateDialog();
     }
 
