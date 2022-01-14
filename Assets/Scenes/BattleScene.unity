@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c286be65c621f7848896595f6b1c8afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleToStart: 
+  battleToStart: battle1
   FirstSelectHeroBtn: {fileID: 1263576533}
   FirstSelectActionBtn: {fileID: 600497831}
   DialogText: {fileID: 974374201}
@@ -1386,6 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BattleController: {fileID: 685334297}
+  BattleControllerScript: {fileID: 0}
   DialogText: {fileID: 974374201}
 --- !u!4 &916040255
 Transform:

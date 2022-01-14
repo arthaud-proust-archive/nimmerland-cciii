@@ -8,6 +8,7 @@ public class DIalogController : MonoBehaviour
 {
 
     public BattleController BattleController;
+    public BattleController BattleControllerScript;
     public Text DialogText;
 
     private int dialogStep;
@@ -15,7 +16,7 @@ public class DIalogController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        BattleControllerScript = BattleController.GetComponent<BattleController>();
     }
 
     // Update is called once per frame
@@ -28,8 +29,8 @@ public class DIalogController : MonoBehaviour
     public void NextDialog()
     {
         dialogStep++;
-        Debug.Log(BattleController.GetScene());
+        Debug.Log(BattleController.GetScene().Background);
         // Debug.Log(BattleController.GetScene().GetDialogs()[dialogStep]);
-        // DialogText.text = ;
+        DialogText.text = BattleControllerScript.GetScene().GetDialogs()[dialogStep];
     }
 }

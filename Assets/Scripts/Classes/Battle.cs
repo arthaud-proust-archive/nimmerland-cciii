@@ -39,13 +39,13 @@ namespace Classes
         private List<Entity> entities = new List<Entity>();
 
         // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
-        private string background;
-        private string music;
-        private List<string> dialogs;
+        public string Background;
+        public string Music;
+        public List<string> Dialogs;
 
         public Battle()
         {
-            CreateScene();
+            Debug.Log("Battle constructor called");
             FillHeroes();
             FillEnemies();
             FillEntities();
@@ -54,7 +54,10 @@ namespace Classes
 
         public void CreateScene()
         {
-            Scene = new Scene(background, music, dialogs);
+            Debug.Log("CreateScene called");
+            Scene = new Scene(Background, Music, Dialogs);
+            Debug.Log("Scene.Background");
+            Debug.Log(Scene.GetBackground());
         }
 
 

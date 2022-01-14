@@ -18,6 +18,7 @@ namespace Classes
             Background = background;
             Music = music;
             Dialogs = dialogs;
+            Debug.Log(background);
         }
 
         public string GetBackground()

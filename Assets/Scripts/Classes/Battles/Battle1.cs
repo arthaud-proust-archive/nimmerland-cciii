@@ -8,15 +8,18 @@ namespace BattleClasses
 {
     public class Battle1 : Battle
     {
-        private string background = "level-1";
-        private string music = "music-1";
-        private List<string> dialogs = new List<string>
+        public Battle1() :base()
         {
-            "Test 1/3",
-            "Test 2/3",
-            "Test 3/3"
-        };
-
+            Debug.Log("Battle1 constructor called");
+            Background = "level-1";
+            Music = "music-1";
+            Dialogs = new List<string>{
+                "Test 1/3",
+                "Test 2/3",
+                "Test 3/3"
+            };
+            CreateScene();
+        }
         public override void FillEnemies()
         {
             Enemies.Add(new Enemy1());
