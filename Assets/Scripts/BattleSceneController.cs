@@ -53,15 +53,11 @@ namespace Classes {
 
         public void UpdateVisibilityOfEnemySprite()
         {
-            Debug.Log("Enemy visible");
-            Debug.Log(Battle.Enemies[0]);
-            Debug.Log(Battle.Enemies[0].Visible);
             EnemySprite.GetComponent<Renderer>().enabled = (bool)Battle.Enemies[0].Visible;
         }
 
         public void LoadBackgroundSprite()
         {
-            Debug.Log(Battle.GetScene().Background);
             BackgroundSpriteResolver.SetCategoryAndLabel("Backgrounds", Battle.GetScene().Background);
             BackgroundSpriteResolver.ResolveSpriteToSpriteRenderer();
             // Debug.Log(BackgroundSprite.GetComponent<SpriteRenderer>().sprite);

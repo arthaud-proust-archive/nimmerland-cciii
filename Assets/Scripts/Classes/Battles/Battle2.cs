@@ -53,8 +53,9 @@ namespace BattleClasses
 
 
 
+                new Dialog(Enemies[0], "!!!", true),
                 new Dialog(Heroes[0], "C'EST ELLE ! C'EST LA PRÊTRESSE DU SOLEIL !"),
-                new Dialog(Enemies[0], "En effet je suis bien celle que vous prétendez.", true),
+                new Dialog(Enemies[0], "En effet je suis bien celle que vous prétendez."),
                 new Dialog(Enemies[0], "Oh, ce regard que vous avez-là, il me rappelle celui d'un chevalier..."),
                 new Dialog(Enemies[0], "Quel était son nom déjà...?"),
                 new Dialog(Enemies[0], "Oh, après tout peu d'importance, il n'a pas survécu longtemps après avoir succombé à mon charme..."),

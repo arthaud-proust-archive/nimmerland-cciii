@@ -12,6 +12,9 @@ namespace EnemyClasses
             Visible = false;
             BasePv = 200;
             BaseAttack = 30;
+            // Le jeu est trop facile?
+            //BaseAttack = 3000000;
+            // oui oui le game over fonctionne rho
             BaseSpeed = 40;
             BaseDefense = 0;
 

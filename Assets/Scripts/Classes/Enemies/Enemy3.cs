@@ -9,6 +9,7 @@ namespace EnemyClasses
     {
         public Enemy3(Battle battle) : base(battle)
         {
+            Visible = false;
             BasePv = 300;
             BaseAttack = 40;
             BaseSpeed = 27;

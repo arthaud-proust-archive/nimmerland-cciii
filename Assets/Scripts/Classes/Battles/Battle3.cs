@@ -65,7 +65,7 @@ namespace BattleClasses
 
                 new Dialog(Enemies[0], "Je ne m'attendais pas à te revoir ici. La première fois ne t'as pas suffit ?"),
                 new Dialog(Enemies[0], "Devrais-je donc te trancher le second oeil pour te faire comprendre les liens qui nous unissent désormais ?"),
-                new Dialog(Heroes[0], "ALORS VOUS ! V-VOUS ALLEZ VOIR !"),
+                new Dialog(Heroes[0], "ALORS VOUS ! V-VOUS ALLEZ VOIR !", true),
                 new Dialog(Heroes[0], "OUAIS !"),
                 new Dialog(Heroes[0], "VOUS ALLEZ VOIR CE QUE VOUS ALLEZ VOIR ! ON VA V-"),
                 new Dialog(Heroes[2], "SILENCE MAGY !"),

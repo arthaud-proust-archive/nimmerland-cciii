@@ -61,7 +61,9 @@ namespace Classes
             }
             else
             {
-                BattleController.GetSceneControllerScript().UpdateVisibilityOfEnemySprite();
+                currentDialog = GetDialogsOfTypeUsed()[dialogStep];
+                currentDialog.UpdateEntityVisibility();
+                BattleController.GetBattleSceneControllerScript().UpdateVisibilityOfEnemySprite();
                 UpdateDialodText();
             }
         }
@@ -81,8 +83,6 @@ namespace Classes
         public void UpdateDialodText()
         {
 
-            currentDialog = GetDialogsOfTypeUsed()[dialogStep];
-            Debug.Log(currentDialog.Entity.Name);
             DialogAuthor.text = currentDialog.Entity.Name;
             DialogAuthor.color = currentDialog.Entity.DialogNameColor;
             DialogText.text = currentDialog.Text;

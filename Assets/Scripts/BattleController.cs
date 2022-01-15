@@ -27,17 +27,21 @@ public class BattleController : MonoBehaviour
     private BattleDialogController dialogControllerScript;
 
     public BattleSceneController BattleSceneController;
-    private BattleSceneController sceneControllerScript;
+    private BattleSceneController battleSceneControllerScript;
+    
+    public SceneControl SceneControl;
+    private SceneControl sceneControlScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
         dialogControllerScript = BattleDialogController.GetComponent<BattleDialogController>();
-        sceneControllerScript = BattleSceneController.GetComponent<BattleSceneController>();
+        battleSceneControllerScript = BattleSceneController.GetComponent<BattleSceneController>();
+        sceneControlScript = SceneControl.GetComponent<SceneControl>();
 
         dialogControllerScript.BattleController = this;
-        sceneControllerScript.BattleController = this;
+        battleSceneControllerScript.BattleController = this;
 
 
         StartBattle(BattleToStart);
@@ -45,11 +49,18 @@ public class BattleController : MonoBehaviour
 
     public void NextBattle()
     {
-        StartBattle(battleId+1);
+        if(battleId < Battles.Count )
+        {
+            StartBattle(battleId + 1);
+        }
+        else
+        {
+            sceneControlScript.LoadScene("StartMenu");
+        }
     }
-    public BattleSceneController GetSceneControllerScript()
+    public BattleSceneController GetBattleSceneControllerScript()
     {
-        return sceneControllerScript;
+        return battleSceneControllerScript;
     }
 
     // Public classes 
@@ -59,11 +70,11 @@ public class BattleController : MonoBehaviour
         battleId = _battleId;
 
         dialogControllerScript.SetScene(currentBattle.GetScene());
-        sceneControllerScript.SetBattle(currentBattle);
-        sceneControllerScript.LoadBackgroundSprite();
-        sceneControllerScript.LoadEnemySprite();
+        battleSceneControllerScript.SetBattle(currentBattle);
+        battleSceneControllerScript.LoadBackgroundSprite();
+        battleSceneControllerScript.LoadEnemySprite();
 
-        sceneControllerScript.SetBattleGroupVisible(false);
+        battleSceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog(DialogTypes.Before);
         if(currentBattle.ShouldSkipDialog())
         {
@@ -93,14 +104,13 @@ public class BattleController : MonoBehaviour
         } else
         {
             currentBattle.EndTurn();
-            Debug.Log(currentBattle.IsEnded());
             if (currentBattle.IsEnded())
             {
                 HandleBattleEnded();
             }
             else
             {
-                sceneControllerScript.UpdatePv();
+                battleSceneControllerScript.UpdatePv();
                 currentBattle.BeginTurn();
             }
         }
@@ -121,8 +131,8 @@ public class BattleController : MonoBehaviour
         if(dialogType.Equals(DialogTypes.Before))
         {
             currentBattle.BeginTurn();
-            sceneControllerScript.UpdatePv();
-            sceneControllerScript.ShowBattleGroup();
+            battleSceneControllerScript.UpdatePv();
+            battleSceneControllerScript.ShowBattleGroup();
         } else if(dialogType.Equals(DialogTypes.After))
         {
             // passer à la scène suivante
@@ -132,11 +142,19 @@ public class BattleController : MonoBehaviour
 
     public void HandleBattleEnded()
     {
-        sceneControllerScript.SetBattleGroupVisible(false);
-        dialogControllerScript.OpenDialog(DialogTypes.After);
-        if (currentBattle.ShouldSkipDialog()) { 
-            dialogControllerScript.CloseDialog();
+        if(currentBattle.IsWon())
+        {
+            battleSceneControllerScript.SetBattleGroupVisible(false);
+            dialogControllerScript.OpenDialog(DialogTypes.After);
+            if (currentBattle.ShouldSkipDialog())
+            {
+                dialogControllerScript.CloseDialog();
+            }
+        } else if(currentBattle.IsLost())
+        {
+            sceneControlScript.LoadScene("Gameover");
         }
+
     }
 
 }

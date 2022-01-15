@@ -10,17 +10,19 @@ namespace Classes
     {
         public Entity Entity;
         public string Text;
+        public bool? EntityVisible;
         public Dialog(Entity entity, string text, bool? entityVisible=null)
         {
             Entity = entity;
             Text = text;
+            EntityVisible = entityVisible;
+        }
 
-            Debug.Log("enity null default?");
-            Debug.Log(entityVisible);
-            if (!(entityVisible is null) )
+        public void UpdateEntityVisibility()
+        {
+            if (!(EntityVisible is null))
             {
-                Entity.Visible = (bool)entityVisible;
-                Debug.Log(entity.Visible);
+                Entity.Visible = (bool)EntityVisible;
             }
         }
     }

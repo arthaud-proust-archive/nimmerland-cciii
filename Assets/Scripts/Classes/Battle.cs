@@ -73,6 +73,15 @@ namespace Classes
             return (BattleStatus.Equals(BattleStatus.Lost) 
                 || BattleStatus.Equals(BattleStatus.Won));
         }
+        public bool IsLost()
+        {
+            return (BattleStatus.Equals(BattleStatus.Lost));
+        }
+
+        public bool IsWon()
+        {
+            return (BattleStatus.Equals(BattleStatus.Won));
+        }
 
         public void CreateScene()
         { 
@@ -140,10 +149,13 @@ namespace Classes
 
         public void UpdateBattleStatus()
         {
-            foreach(Hero hero in Heroes)
+            BattleStatus = BattleStatus.Processing;
+
+            foreach (Hero hero in Heroes)
             {
                 if(hero.IsDead())
                 {
+                    Debug.Log(hero.Name+": "+hero.GetLifeString());
                     BattleStatus = BattleStatus.Lost;
                     return;
                 }
@@ -157,8 +169,6 @@ namespace Classes
                     return;
                 }
             }
-
-            BattleStatus = BattleStatus.Processing;
         }
 
         public Turn GetTurn()
