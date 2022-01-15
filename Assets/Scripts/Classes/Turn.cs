@@ -31,13 +31,6 @@ namespace Classes
 
         public void DoAction()
         {
-            Debug.Log("--------- Action");
-            Debug.Log(EntityToPlay.Name);
-            Debug.Log(EntityToPlay.IsTypeOfHero());
-            foreach (Entity entity in Enemies)
-            {
-                Debug.Log(entity);
-            }
             if (Action == "Attack")
             {
                 if(EntityToPlay.IsTypeOfHero())

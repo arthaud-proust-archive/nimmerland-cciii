@@ -8,14 +8,14 @@ namespace Classes
 {
     public class Scene
     {
-        public Sprite Background { get; set; }
+        public string Background { get; set; }
 
         public string Music { get; set; }
         public List<Dialog> DialogsBefore { get; set; }
         public List<Dialog> DialogsAfter { get; set; }
 
         // constructeur
-        public Scene(Sprite background, string music, List<Dialog> dialogsBefore, List<Dialog> dialogsAfter)
+        public Scene(string background, string music, List<Dialog> dialogsBefore, List<Dialog> dialogsAfter)
         {
             
             Background = background;

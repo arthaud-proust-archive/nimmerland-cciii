@@ -14,7 +14,7 @@ namespace BattleClasses
         {
             
             //Background = Resources.Load<Sprite>("Sprites/Background/bg_foret");
-            Background = Resources.Load<Sprite>("New_Ritter_Von_Platz");
+            Background = "Forest";
             Music = "music-1";
             DialogsBefore = new List<Dialog>{
                 new Dialog(Heroes[2], "Et donc Runden, tu dis que c'est dans cette forêt que se terre le chef des bandits ?"),

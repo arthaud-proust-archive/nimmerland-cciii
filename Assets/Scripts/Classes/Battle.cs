@@ -23,7 +23,7 @@ class GFG : IComparer<Entity>
 
 namespace Classes
 {
-    
+    public enum BattleStatus { Processing, Won, Lost }
     public class Battle
     {
         
@@ -31,6 +31,8 @@ namespace Classes
         // 1 pass  = 1 tour pour chaque entité
         public int PassI = 0;
         public int TurnI = 0;
+
+        public BattleStatus BattleStatus= BattleStatus.Processing;
 
         public Scene Scene;
 
@@ -42,7 +44,7 @@ namespace Classes
         private List<Entity> entities = new List<Entity>();
 
         // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
-        public Sprite Background;
+        public string Background;
         public string Music;
         public List<Dialog> DialogsBefore;
         public List<Dialog> DialogsAfter;
@@ -60,9 +62,15 @@ namespace Classes
 
         }
 
-        public bool SkipDialog()
+        public bool ShouldSkipDialog()
         {
             return true;
+        }
+
+        public bool IsEnded()
+        {
+            return (BattleStatus.Equals(BattleStatus.Lost) 
+                || BattleStatus.Equals(BattleStatus.Won));
         }
 
         public void CreateScene()
@@ -117,8 +125,7 @@ namespace Classes
         {
             GetTurn().DoAction();
             // tester fin battle
-
-            BeginTurn();
+            UpdateBattleStatus();
         }
         public void BeginTurn()
         {
@@ -128,6 +135,29 @@ namespace Classes
                 TurnI = 0;
             }
             Turns.Add(new Turn(entities[TurnI], this, TurnI));
+        }
+
+        public void UpdateBattleStatus()
+        {
+            foreach(Hero hero in Heroes)
+            {
+                if(hero.IsDead())
+                {
+                    BattleStatus = BattleStatus.Lost;
+                    return;
+                }
+            }
+
+            foreach (Enemy enemy in Enemies)
+            {
+                if (enemy.IsDead())
+                {
+                    BattleStatus = BattleStatus.Won;
+                    return;
+                }
+            }
+
+            BattleStatus = BattleStatus.Processing;
         }
 
         public Turn GetTurn()

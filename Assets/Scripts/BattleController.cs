@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,14 @@ using BattleClasses;
 
 public class BattleController : MonoBehaviour
 {
-    public string battleToStart;
+    public int BattleToStart;
+    private int battleId;
+
+    private List<Type> Battles = new List<Type> { 
+        typeof(Battle1), 
+        typeof(Battle2), 
+        typeof(Battle3)
+    };
     private Battle currentBattle;
 
     public Button FirstSelectHeroBtn;
@@ -32,38 +40,28 @@ public class BattleController : MonoBehaviour
         sceneControllerScript.BattleController = this;
 
 
-        StartBattle(battleToStart);
+        StartBattle(BattleToStart);
     }
 
+    public void NextBattle()
+    {
+        StartBattle(battleId+1);
+    }
 
     // Public classes 
-    public void StartBattle(string battleType)
+    public void StartBattle(int _battleId)
     {
-        switch (battleType)
-        {
-            case "battle1":
-                currentBattle = new Battle1();
-                break;
-            case "battle2":
-                currentBattle = new Battle2();
-                break;
-            case "battle3":
-                currentBattle = new Battle3();
-                break;
-            case "battle4":
-                currentBattle = new Battle4();
-                break;
-            default:
-                break;
-        }
+        currentBattle = (Battle)Activator.CreateInstance(Battles[_battleId]);
+        battleId = _battleId;
 
         dialogControllerScript.SetScene(currentBattle.GetScene());
         sceneControllerScript.SetBattle(currentBattle);
-        sceneControllerScript.LoadBackground();
+        sceneControllerScript.LoadBackgroundSprite();
+        sceneControllerScript.LoadEnemySprite();
 
         sceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog(DialogTypes.Before);
-        if(currentBattle.SkipDialog())
+        if(currentBattle.ShouldSkipDialog())
         {
             dialogControllerScript.CloseDialog();
         }
@@ -91,13 +89,15 @@ public class BattleController : MonoBehaviour
         } else
         {
             currentBattle.EndTurn();
-            if(currentBattle.IsEnded())
+            Debug.Log(currentBattle.IsEnded());
+            if (currentBattle.IsEnded())
             {
                 HandleBattleEnded();
             }
             else
             {
                 sceneControllerScript.UpdatePv();
+                currentBattle.BeginTurn();
             }
         }
     }
@@ -112,22 +112,27 @@ public class BattleController : MonoBehaviour
         FirstSelectActionBtn.Select();
     }
 
-    public void HandleEndDialogBefore()
+    public void HandleEndDialog(DialogTypes dialogType)
     {
-        currentBattle.BeginTurn();
-        sceneControllerScript.UpdatePv();
-        sceneControllerScript.ShowBattleGroup();
-    }
-
-    public virtual void HandleEndDialogAfter()
-    {
-        // passer à la scène suivante
+        if(dialogType.Equals(DialogTypes.Before))
+        {
+            currentBattle.BeginTurn();
+            sceneControllerScript.UpdatePv();
+            sceneControllerScript.ShowBattleGroup();
+        } else if(dialogType.Equals(DialogTypes.After))
+        {
+            // passer à la scène suivante
+            NextBattle();
+        }
     }
 
     public void HandleBattleEnded()
     {
         sceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog(DialogTypes.After);
+        if (currentBattle.ShouldSkipDialog()) { 
+            dialogControllerScript.CloseDialog();
+        }
     }
 
 }
