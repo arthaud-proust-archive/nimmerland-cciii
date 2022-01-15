@@ -13,7 +13,7 @@ namespace EnemyClasses {
             BaseSpeed = 40;
             BaseDefense = 0;
 
-            Name = "";
+            Name = "Roi des Bandits";
             DialogNameColor = Color.black;
         }
     }

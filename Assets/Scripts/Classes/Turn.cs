@@ -40,7 +40,13 @@ namespace Classes
             }
             if (Action == "Attack")
             {
-                EntityToPlay.Attack(Enemies[0]);
+                if(EntityToPlay.IsTypeOfHero())
+                { 
+                    EntityToPlay.Attack(Enemies[0]);
+                } else
+                {
+                    EntityToPlay.AttackRandom(Enemies);
+                }
             }
         }
 

@@ -8,32 +8,23 @@ namespace Classes
 {
     public class Scene
     {
-        public string Background;
-        public string Music;
-        public List<Dialog> Dialogs = new List<Dialog>();
+        public Sprite Background { get; set; }
+
+        public string Music { get; set; }
+        public List<Dialog> DialogsBefore { get; set; }
+        public List<Dialog> DialogsAfter { get; set; }
 
         // constructeur
-        public Scene(string background, string music, List<Dialog> dialogs)
+        public Scene(Sprite background, string music, List<Dialog> dialogsBefore, List<Dialog> dialogsAfter)
         {
+            
             Background = background;
             Music = music;
-            Dialogs = dialogs;
+            DialogsBefore = dialogsBefore;
+            DialogsAfter = dialogsAfter;
             Debug.Log(background);
         }
 
-        public string GetBackground()
-        {
-            return Background;
-        }
 
-        public string GetMusic()
-        {
-            return Music;
-        }
-
-        public List<Dialog> GetDialogs()
-        {
-            return Dialogs;
-        }
     }
 }

@@ -59,9 +59,14 @@ public class BattleController : MonoBehaviour
 
         dialogControllerScript.SetScene(currentBattle.GetScene());
         sceneControllerScript.SetBattle(currentBattle);
+        sceneControllerScript.LoadBackground();
 
         sceneControllerScript.SetBattleGroupVisible(false);
-        dialogControllerScript.OpenDialog();
+        dialogControllerScript.OpenDialog(DialogTypes.Before);
+        if(currentBattle.SkipDialog())
+        {
+            dialogControllerScript.CloseDialog();
+        }
     }
 
     public Turn GetTurn()
@@ -101,12 +106,21 @@ public class BattleController : MonoBehaviour
     }
 
 
-    public void HandleDialogEnd()
+    public void HandleEndDialogBefore()
     {
         currentBattle.BeginTurn();
         sceneControllerScript.UpdatePv();
         sceneControllerScript.ShowBattleGroup();
+    }
 
+    public virtual void HandleEndDialogAfter()
+    {
+        // passer à la scène suivante
+    }
+
+    public void HandleBattleEnd()
+    {
+        dialogControllerScript.OpenDialog(DialogTypes.After);
     }
 
 }
