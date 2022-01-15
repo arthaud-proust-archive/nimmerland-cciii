@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 using TMPro;
 using Classes;
-
+using UnityEngine.Experimental.U2D.Animation;
 
 namespace Classes {
     public class BattleSceneController : MonoBehaviour
@@ -16,6 +16,8 @@ namespace Classes {
         public Button ActionToSelectFirst;
         public Button HeroSelectionToSelectFirst;
 
+        public SpriteResolver BackgroundSpriteResolver;
+        public SpriteResolver EnemySpriteResolver;
         public GameObject BackgroundSprite; 
         public GameObject HeroesPvList;
         public GameObject EnemiesPvList;
@@ -48,11 +50,20 @@ namespace Classes {
             UpdatePvOfList(Battle.Enemies, EnemiesPvList);
         }
 
-        public void LoadBackground()
+        public void LoadBackgroundSprite()
         {
-            Debug.Log(BackgroundSprite.GetComponent<SpriteRenderer>().sprite);
             Debug.Log(Battle.GetScene().Background);
+            BackgroundSpriteResolver.SetCategoryAndLabel("Backgrounds", Battle.GetScene().Background);
+            BackgroundSpriteResolver.ResolveSpriteToSpriteRenderer();
+            // Debug.Log(BackgroundSprite.GetComponent<SpriteRenderer>().sprite);
+            // Debug.Log(Battle.GetScene().Background);
             // BackgroundSprite.GetComponent<SpriteRenderer>().sprite = Battle.GetScene().Background;
+        }
+
+        public void LoadEnemySprite()
+        {
+            EnemySpriteResolver.SetCategoryAndLabel("Enemies", Battle.Enemies[0].Name);
+            EnemySpriteResolver.ResolveSpriteToSpriteRenderer();
         }
         public void Update()
         {

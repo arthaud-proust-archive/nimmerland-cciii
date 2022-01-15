@@ -8,7 +8,6 @@ namespace Classes
 {
     public class Enemy : Entity
     {
-
         public Enemy() :base()
         {
             EntityType = EntityTypes.Enemy;

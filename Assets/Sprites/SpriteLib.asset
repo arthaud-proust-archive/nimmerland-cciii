@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: SpriteLib
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Enemies
+    m_Hash: -1212189790
+    m_CategoryList:
+    - m_Name: Roi des Bandits
+      m_Hash: 443198481
+      m_Sprite: {fileID: 21300000, guid: 3d468a2c57e8d5148b3041ba7505505e, type: 3}
+    - m_Name: "Pr\xEAtresse"
+      m_Hash: -484615365
+      m_Sprite: {fileID: 21300000, guid: b668208b5e80c5643812322daa264c63, type: 3}
+    - m_Name: Chevalier Noir
+      m_Hash: 972162169
+      m_Sprite: {fileID: 21300000, guid: 328c0e4d80ee1fd4ea8a232b5e0dceff, type: 3}
+  - m_Name: Backgrounds
+    m_Hash: -163219044
+    m_CategoryList:
+    - m_Name: Forest
+      m_Hash: -1343138174
+      m_Sprite: {fileID: 21300000, guid: d314010c33a9f4f47af64beca2191184, type: 3}
+    - m_Name: Desert
+      m_Hash: 154056972
+      m_Sprite: {fileID: 21300000, guid: 4aa2784376fd6e6448ab3768fc4abf87, type: 3}
+    - m_Name: Neige
+      m_Hash: 2105249308
+      m_Sprite: {fileID: 21300000, guid: a12100120af2ce249b5f3fe8cdbfb374, type: 3}

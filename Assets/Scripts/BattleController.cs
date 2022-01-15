@@ -56,7 +56,8 @@ public class BattleController : MonoBehaviour
 
         dialogControllerScript.SetScene(currentBattle.GetScene());
         sceneControllerScript.SetBattle(currentBattle);
-        sceneControllerScript.LoadBackground();
+        sceneControllerScript.LoadBackgroundSprite();
+        sceneControllerScript.LoadEnemySprite();
 
         sceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog(DialogTypes.Before);

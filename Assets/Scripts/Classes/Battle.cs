@@ -44,7 +44,7 @@ namespace Classes
         private List<Entity> entities = new List<Entity>();
 
         // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
-        public Sprite Background;
+        public string Background;
         public string Music;
         public List<Dialog> DialogsBefore;
         public List<Dialog> DialogsAfter;

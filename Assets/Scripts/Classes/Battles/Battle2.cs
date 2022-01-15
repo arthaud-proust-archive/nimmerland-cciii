@@ -14,7 +14,7 @@ namespace BattleClasses
         {
 
             //Background = Resources.Load<Sprite>("Sprites/Background/bg_foret");
-            Background = Resources.Load<Sprite>("New_Ritter_Von_Platz");
+            Background = "Desert";
             Music = "music-2";
             DialogsBefore = new List<Dialog>{
                 new Dialog(Heroes[0], "Pfff... Je déteste ce désert..."),

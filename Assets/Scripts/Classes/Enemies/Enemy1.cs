@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Classes;
 
-namespace EnemyClasses {
+namespace EnemyClasses 
+{
     public class Enemy1 : Enemy
     { 
         public Enemy1() :base()
