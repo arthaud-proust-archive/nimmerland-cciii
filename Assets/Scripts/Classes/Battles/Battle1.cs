@@ -8,7 +8,7 @@ namespace BattleClasses
 {
     public class Battle1 : Battle
     {
-        public Battle1() :base() {}
+        public Battle1() : base() { }
 
         public override void FillScene()
         {
@@ -34,14 +34,14 @@ namespace BattleClasses
                 new Dialog(Heroes[2], "...Je sens une présence..."),
                 new Dialog(Heroes[1], "Vous êtes sûrs messire Platz...?"),
                 new Dialog(Heroes[0], "Ce n'est sûrement qu'un anim-"),
-                new Dialog(new EnemyUnknown(), "Dans ces lieux il n'y a qu'une seule façon de voir le monde."),
-                new Dialog(new EnemyUnknown(), "Être le prédateur..."),
-                new Dialog(new EnemyUnknown(), "...Ou la proie."),
+                new Dialog(new EnemyUnknown(this), "Dans ces lieux il n'y a qu'une seule façon de voir le monde."),
+                new Dialog(new EnemyUnknown(this), "Être le prédateur..."),
+                new Dialog(new EnemyUnknown(this), "...Ou la proie."),
                 new Dialog(Heroes[2], "Hmm."),
                 new Dialog(Heroes[2], "C'est donc bien toi ce fameux Roi des Bandits dont tout le monde parle tant ?"),
 
 
-                new Dialog(Enemies[0], "Ooooh... Ma réputation me précède donc ? Tant d'honneurs..."),
+                new Dialog(Enemies[0], "Ooooh... Ma réputation me précède donc ? Tant d'honneurs...", true),
                 new Dialog(Enemies[0], "Tiens mais ! Je le reconnais ce chauve !"),
                 new Dialog(Enemies[0], "Ahahahah, je me souviendrais encore des cris de détresse que poussaient ses petits cadets le couteau sous la gorge !"),
                 new Dialog(Heroes[0], "Runden ? De quoi parle-t-il ?"),
@@ -71,7 +71,7 @@ namespace BattleClasses
         }
         public override void FillEnemies()
         {
-            Enemies.Add(new Enemy1());
+            Enemies.Add(new Enemy1(this));
         }
     }
 }

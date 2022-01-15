@@ -7,7 +7,7 @@ namespace HeroClasses
 {
     public class Hero1 : Hero
     {
-        public Hero1() :base() {
+        public Hero1(Battle battle) :base(battle) {
             BasePv = 100;
             BaseAttack = 15;
             BaseSpeed = 35;

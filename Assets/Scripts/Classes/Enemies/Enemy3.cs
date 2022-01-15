@@ -7,7 +7,7 @@ namespace EnemyClasses
 {
     public class Enemy3 : Enemy
     {
-        public Enemy3() : base()
+        public Enemy3(Battle battle) : base(battle)
         {
             BasePv = 300;
             BaseAttack = 40;

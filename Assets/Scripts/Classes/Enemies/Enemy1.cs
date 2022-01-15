@@ -7,8 +7,9 @@ namespace EnemyClasses
 {
     public class Enemy1 : Enemy
     { 
-        public Enemy1() :base()
+        public Enemy1(Battle battle) : base(battle)
         {
+            Visible = false;
             BasePv = 200;
             BaseAttack = 30;
             BaseSpeed = 40;

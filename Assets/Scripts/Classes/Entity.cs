@@ -11,7 +11,6 @@ namespace Classes
     {
         private readonly System.Random rnd = new System.Random();
 
-
         private int _basePv = 0;
         private int _baseAttack = 0;
         private int _baseSpeed = 0;
@@ -86,13 +85,15 @@ namespace Classes
         }
 
 
-
+        public Battle Battle { get; set; }
+        public bool? Visible { get; set; }
 
         public Guid Guid;
         public EntityTypes EntityType { get; set; }
 
-        public Entity()
+        public Entity(Battle battle)
         {
+            Battle = battle;
             Guid = Guid.NewGuid();
         }
 
@@ -126,7 +127,6 @@ namespace Classes
         {
             return EntityTypes.Hero.Equals(EntityType);
         }
-
 
 
         // Speed part

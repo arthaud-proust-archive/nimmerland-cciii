@@ -7,7 +7,7 @@ namespace Classes
 {
     public class Hero : Entity
     {
-        public Hero() : base() {
+        public Hero(Battle battle) : base(battle) {
             EntityType = EntityTypes.Hero;
         }
 

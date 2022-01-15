@@ -7,7 +7,7 @@ namespace EnemyClasses
 {
     public class EnemyUnknown : Enemy
     {
-        public EnemyUnknown() : base()
+        public EnemyUnknown(Battle battle) : base(battle)
         {
             Name = "???";
             DialogNameColor = Color.black;

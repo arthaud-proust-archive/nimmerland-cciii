@@ -19,6 +19,7 @@ namespace Classes {
         public SpriteResolver BackgroundSpriteResolver;
         public SpriteResolver EnemySpriteResolver;
         public GameObject BackgroundSprite; 
+        public GameObject EnemySprite;
         public GameObject HeroesPvList;
         public GameObject EnemiesPvList;
 
@@ -48,6 +49,14 @@ namespace Classes {
         {
             UpdatePvOfList(Battle.Heroes, HeroesPvList);
             UpdatePvOfList(Battle.Enemies, EnemiesPvList);
+        }
+
+        public void UpdateVisibilityOfEnemySprite()
+        {
+            Debug.Log("Enemy visible");
+            Debug.Log(Battle.Enemies[0]);
+            Debug.Log(Battle.Enemies[0].Visible);
+            EnemySprite.GetComponent<Renderer>().enabled = (bool)Battle.Enemies[0].Visible;
         }
 
         public void LoadBackgroundSprite()

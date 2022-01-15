@@ -48,13 +48,13 @@ namespace BattleClasses
                 new Dialog(Heroes[0], "Hehehe, vous voyez quand vous voulez !"),
                 new Dialog(Heroes[2], "Tsss, dans tous les cas c'est tout simplement une histoire à dormir debout."),
                 new Dialog(Heroes[2], "Alors un peu de sérieux et continuons d’av-..."),
-                new Dialog(new EnemyUnknown(), "Qu'entends-je ? Qu’ouïs-je ? Une histoire à dormir debout ?"),
+                new Dialog(new EnemyUnknown(this), "Qu'entends-je ? Qu’ouïs-je ? Une histoire à dormir debout ?"),
                 new Dialog(Heroes[2], "HM ?!"),
 
 
 
                 new Dialog(Heroes[0], "C'EST ELLE ! C'EST LA PRÊTRESSE DU SOLEIL !"),
-                new Dialog(Enemies[0], "En effet je suis bien celle que vous prétendez."),
+                new Dialog(Enemies[0], "En effet je suis bien celle que vous prétendez.", true),
                 new Dialog(Enemies[0], "Oh, ce regard que vous avez-là, il me rappelle celui d'un chevalier..."),
                 new Dialog(Enemies[0], "Quel était son nom déjà...?"),
                 new Dialog(Enemies[0], "Oh, après tout peu d'importance, il n'a pas survécu longtemps après avoir succombé à mon charme..."),
@@ -101,7 +101,7 @@ namespace BattleClasses
         }
         public override void FillEnemies()
         {
-            Enemies.Add(new Enemy2());
+            Enemies.Add(new Enemy2(this));
         }
     }
 }
