@@ -52,6 +52,7 @@ namespace Classes
             return dialogStep == GetDialogsOfTypeUsed().Count;
         }
 
+
         public void UpdateDialog()
         {
             if (IsLastDialogReached())
@@ -60,6 +61,7 @@ namespace Classes
             }
             else
             {
+                BattleController.GetSceneControllerScript().UpdateVisibilityOfEnemySprite();
                 UpdateDialodText();
             }
         }

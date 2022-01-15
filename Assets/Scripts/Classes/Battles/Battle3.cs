@@ -54,10 +54,10 @@ namespace BattleClasses
                 new Dialog(Heroes[0], "W-Whaouh..."),
                 new Dialog(Heroes[2], "Enfin bref, il suffit pour les tirades nous avons mieux à f-..."),
                 new Dialog(Heroes[1], "Qu'est-ce que...?"),
-                new Dialog(new EnemyUnknown(), "*Rires graves*"),
+                new Dialog(new EnemyUnknown(this), "*Rires graves*"),
                 new Dialog(Heroes[0], "Qu-Qui va là ?!"),
-                new Dialog(new EnemyUnknown(), "Mouahahah... Et bien, Ritter, quelle tête nous fais-tu ?"),
-                new Dialog(new EnemyUnknown(), "On dirait que tu as vu un fantôme..."),
+                new Dialog(new EnemyUnknown(this), "Mouahahah... Et bien, Ritter, quelle tête nous fais-tu ?"),
+                new Dialog(new EnemyUnknown(this), "On dirait que tu as vu un fantôme..."),
                 new Dialog(Heroes[2], "..."),
                 new Dialog(Heroes[1], "Me...Messire...? Est-ce...?"),
                 new Dialog(Heroes[2], "...C'est bien lui oui."),
@@ -140,7 +140,7 @@ namespace BattleClasses
         }
         public override void FillEnemies()
         {
-            Enemies.Add(new Enemy3());
+            Enemies.Add(new Enemy3(this));
         }
     }
 }

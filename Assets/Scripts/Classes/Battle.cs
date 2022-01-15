@@ -34,6 +34,7 @@ namespace Classes
 
         public BattleStatus BattleStatus= BattleStatus.Processing;
 
+
         public Scene Scene;
 
         public List<Turn> Turns = new List<Turn>();
@@ -64,7 +65,7 @@ namespace Classes
 
         public bool ShouldSkipDialog()
         {
-            return true;
+            return false;
         }
 
         public bool IsEnded()
@@ -82,9 +83,9 @@ namespace Classes
         public void FillHeroes()
         {
             // corrigé ça marche les hero sont bien instanciés
-            Heroes.Add(new Hero1());
-            Heroes.Add(new Hero2());
-            Heroes.Add(new Hero3());
+            Heroes.Add(new Hero1(this));
+            Heroes.Add(new Hero2(this));
+            Heroes.Add(new Hero3(this));
         }
 
         public virtual void FillScene()

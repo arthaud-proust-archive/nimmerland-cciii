@@ -1909,6 +1909,7 @@ MonoBehaviour:
   BackgroundSpriteResolver: {fileID: 401729704}
   EnemySpriteResolver: {fileID: 63196193}
   BackgroundSprite: {fileID: 401729701}
+  EnemySprite: {fileID: 63196190}
   HeroesPvList: {fileID: 1497588108}
   EnemiesPvList: {fileID: 1909762}
 --- !u!1 &600497829

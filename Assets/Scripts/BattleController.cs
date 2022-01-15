@@ -47,6 +47,10 @@ public class BattleController : MonoBehaviour
     {
         StartBattle(battleId+1);
     }
+    public BattleSceneController GetSceneControllerScript()
+    {
+        return sceneControllerScript;
+    }
 
     // Public classes 
     public void StartBattle(int _battleId)
