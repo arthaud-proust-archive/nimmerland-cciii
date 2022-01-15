@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Classes;
 namespace Classes
 {
+    public enum DialogTypes { Before, After };
     public class BattleDialogController : MonoBehaviour
     {
         public BattleController BattleController { get; set; }
@@ -17,6 +18,7 @@ namespace Classes
         public Text DialogAuthor;
         public Text DialogText;
 
+        public DialogTypes DialogType { get; set; }
         private Dialog currentDialog;
         private int dialogStep = 0;
 
@@ -25,8 +27,10 @@ namespace Classes
         {
             Scene = scene;
         }
-        public void OpenDialog()
+        public void OpenDialog(DialogTypes dialogType)
         {
+            DialogType = dialogType;
+            dialogStep = 0;
             SetDialogVisible(true);
             DialogBtn.Select();
             UpdateDialog();
@@ -36,7 +40,7 @@ namespace Classes
         {
             dialogStep = 0;
             SetDialogVisible(false);
-            BattleController.HandleDialogEnd();
+            BattleController.HandleEndDialogBefore();
         }
 
         public void SetDialogVisible(bool visible)
@@ -45,7 +49,7 @@ namespace Classes
         }
         public bool IsLastDialogReached()
         {
-            return dialogStep == Scene.GetDialogs().Count;
+            return dialogStep == GetDialogsOfTypeUsed().Count;
         }
 
         public void UpdateDialog()
@@ -60,9 +64,22 @@ namespace Classes
             }
         }
 
+        public List<Dialog> GetDialogsOfTypeUsed()
+        {
+            if (DialogTypes.After.Equals(DialogType))
+            {
+                return Scene.DialogsBefore;
+            }
+            else
+            {
+                return Scene.DialogsBefore;
+            }
+        }
+
         public void UpdateDialodText()
         {
-            currentDialog = Scene.GetDialogs()[dialogStep];
+
+            currentDialog = GetDialogsOfTypeUsed()[dialogStep];
             Debug.Log(currentDialog.Entity.Name);
             DialogAuthor.text = currentDialog.Entity.Name;
             DialogAuthor.color = currentDialog.Entity.DialogNameColor;

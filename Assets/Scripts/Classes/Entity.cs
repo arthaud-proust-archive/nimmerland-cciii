@@ -9,6 +9,9 @@ namespace Classes
 
     public class Entity : IComparable
     {
+        private readonly System.Random rnd = new System.Random();
+
+
         private int _basePv = 0;
         private int _baseAttack = 0;
         private int _baseSpeed = 0;
@@ -86,7 +89,7 @@ namespace Classes
 
 
         public Guid Guid;
-        public EntityTypes EntityType;
+        public EntityTypes EntityType { get; set; }
 
         public Entity()
         {
@@ -161,7 +164,11 @@ namespace Classes
         {
             entityToAttack.LosePv(ActualAttack);
         }
-
+        public void AttackRandom(List<Entity> entities)
+        {
+            int iToAttack = rnd.Next(entities.Count);
+            Attack(entities[iToAttack]);
+        }
         public int GetAttack()
         {
             return ActualAttack;

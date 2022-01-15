@@ -16,7 +16,7 @@ namespace Classes {
         public Button ActionToSelectFirst;
         public Button HeroSelectionToSelectFirst;
 
-
+        public GameObject BackgroundSprite; 
         public GameObject HeroesPvList;
         public GameObject EnemiesPvList;
 
@@ -29,7 +29,6 @@ namespace Classes {
         // Start is called before the first frame update
         void Start()
         {
-
         }
 
         public void SetBattleGroupVisible(bool visible)
@@ -47,6 +46,13 @@ namespace Classes {
         {
             UpdatePvOfList(Battle.Heroes, HeroesPvList);
             UpdatePvOfList(Battle.Enemies, EnemiesPvList);
+        }
+
+        public void LoadBackground()
+        {
+            Debug.Log(BackgroundSprite.GetComponent<SpriteRenderer>().sprite);
+            Debug.Log(Battle.GetScene().Background);
+            // BackgroundSprite.GetComponent<SpriteRenderer>().sprite = Battle.GetScene().Background;
         }
         public void Update()
         {

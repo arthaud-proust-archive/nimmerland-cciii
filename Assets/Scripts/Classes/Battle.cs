@@ -27,6 +27,7 @@ namespace Classes
     public class Battle
     {
         
+
         // 1 pass  = 1 tour pour chaque entité
         public int PassI = 0;
         public int TurnI = 0;
@@ -41,9 +42,10 @@ namespace Classes
         private List<Entity> entities = new List<Entity>();
 
         // définit à vide, on les remplis selon les niveaux (battle1, battle2, ...)
-        public string Background;
+        public Sprite Background;
         public string Music;
-        public List<Dialog> Dialogs;
+        public List<Dialog> DialogsBefore;
+        public List<Dialog> DialogsAfter;
 
         public Battle()
         {
@@ -58,9 +60,14 @@ namespace Classes
 
         }
 
+        public bool SkipDialog()
+        {
+            return true;
+        }
+
         public void CreateScene()
         { 
-            Scene = new Scene(Background, Music, Dialogs);
+            Scene = new Scene(Background, Music, DialogsBefore, DialogsAfter);
         }
 
 
