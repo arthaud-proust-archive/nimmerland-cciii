@@ -91,7 +91,14 @@ public class BattleController : MonoBehaviour
         } else
         {
             currentBattle.EndTurn();
-            sceneControllerScript.UpdatePv();
+            if(currentBattle.IsEnded())
+            {
+                HandleBattleEnded();
+            }
+            else
+            {
+                sceneControllerScript.UpdatePv();
+            }
         }
     }
 
@@ -105,7 +112,6 @@ public class BattleController : MonoBehaviour
         FirstSelectActionBtn.Select();
     }
 
-
     public void HandleEndDialogBefore()
     {
         currentBattle.BeginTurn();
@@ -118,8 +124,9 @@ public class BattleController : MonoBehaviour
         // passer à la scène suivante
     }
 
-    public void HandleBattleEnd()
+    public void HandleBattleEnded()
     {
+        sceneControllerScript.SetBattleGroupVisible(false);
         dialogControllerScript.OpenDialog(DialogTypes.After);
     }
 
