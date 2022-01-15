@@ -40,7 +40,7 @@ namespace Classes
         {
             dialogStep = 0;
             SetDialogVisible(false);
-            BattleController.HandleEndDialogBefore();
+            BattleController.HandleEndDialog(DialogType);
         }
 
         public void SetDialogVisible(bool visible)
@@ -68,7 +68,7 @@ namespace Classes
         {
             if (DialogTypes.After.Equals(DialogType))
             {
-                return Scene.DialogsBefore;
+                return Scene.DialogsAfter;
             }
             else
             {
